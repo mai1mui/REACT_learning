@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 20px;
+            font-size: 2em;
+            width: 100px;
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <div>
+        <label for="timeInput">Enter time in seconds: </label>
+        <input type="number" id="timeInput" min="1" placeholder="Enter seconds">
+    </div>
+    <div class="buttons">
+        <button class="presetButton" data-time="300">5 min</button>
+        <button class="presetButton" data-time="600">10 min</button>
+        <button class="presetButton" data-time="900">15 min</button>
+    </div>
+    <table>
+        <tr>
+            <td id="timerDisplay">00:00</td>
+        </tr>
+    </table>
+    <div class="buttons">
+        <button id="startButton">Start</button>
+        <button id="pauseButton">Pause</button>
+        <button id="resetButton">Reset</button>
+    </div>
+
+    <script>
+        let countdown;
+        let timeRemaining;
+
+        const timeInput = document.getElementById('timeInput');
+        const timerDisplay = document.getElementById('timerDisplay');
+        const startButton = document.getElementById('startButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const resetButton = document.getElementById('resetButton');
+        const presetButtons = document.querySelectorAll('.presetButton');
+
+        function updateDisplay(time) {
+            const minutes = Math.floor(time / 60).toString().padStart(2, '0');
+            const seconds = (time % 60).toString().padStart(2, '0');
+            timerDisplay.textContent = `${minutes}:${seconds}`;
+        }
+
+        function startCountdown() {
+            if (!timeRemaining) {
+                timeRemaining = parseInt(timeInput.value, 10);
+            }
+
+            if (!timeRemaining || timeRemaining <= 0) return;
+
+            clearInterval(countdown);
+            countdown = setInterval(() => {
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    updateDisplay(timeRemaining);
+                } else {
+                    clearInterval(countdown);
+                    alert('Time is up!');
+                }
+            }, 1000);
+        }
+
+        function pauseCountdown() {
+            clearInterval(countdown);
+        }
+
+        function resetCountdown() {
+            clearInterval(countdown);
+            timeRemaining = 0;
+            updateDisplay(0);
+            timeInput.value = '';
+        }
+
+        presetButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                timeRemaining = parseInt(button.getAttribute('data-time'), 10);
+                updateDisplay(timeRemaining);
+            });
+        });
+
+        startButton.addEventListener('click', startCountdown);
+        pauseButton.addEventListener('click', pauseCountdown);
+        resetButton.addEventListener('click', resetCountdown);
+    </script>
+</body>
+</html>

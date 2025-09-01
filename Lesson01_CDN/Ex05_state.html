@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+    <script src="./JS/script.js"></script>
+    <title>Document</title>
+    <style>
+        .result{border: 2px double rgb(246, 0, 0);
+        width: 250px;
+        padding: 50px;
+        border-radius: 10px;}
+        div {margin: 20px;}
+        .btn{padding: 10px;
+        background-color: rgb(209, 209, 209);}
+        .btn:hover {background-color: rgb(80, 80, 213);}
+    </style>
+    <!-- step 2: phát triển Reactjs code với label type -->
+    <script type="text/babel">
+        class TestState extends React.Component {
+            constructor (props) {
+                super(props);
+                this.state = {
+                    brand: "Vinfast",
+                    model: "VF8",
+                    color: "pink",
+                    year: "2024"
+                };
+            }
+            //methods
+            changeColor = () => {
+                this.setState({color: "gray"});
+            }
+            changeAll = () => {
+                this.setState({
+                    brand: "Vinfast",
+                    model: "VF9",
+                    color: "dark blue",
+                    year: "2025"
+                });
+            }
+            render = () => {
+                return(
+                    <div class="result">
+                        <h1>example of state</h1>
+                        <div>+ Brand: {this.state.brand}</div>
+                        <div>+ Model: {this.state.model}</div>
+                        <div>+ Color: {this.state.color}</div>
+                        <div>+ Year: {this.state.year}</div>
+                        <button class ="btn" onClick = {this.changeColor}>change color</button>
+                        <button class ="btn" onClick = {this.changeAll}>change car</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <TestState/>,
+            document.getElementById('myApp')
+        );
+    </script>
+</head>
+
+<body>
+    <!-- step 3: tạo Reactjs view -->
+    <div id="myApp"></div>
+</body>
+
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->

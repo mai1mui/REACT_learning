@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+    <script src="./JS/script.js"></script>
+    <title>Document</title>
+    <!-- step 2: phát triển Reactjs code với label type -->
+    <script type="text/babel">
+        /**
+          *capitallized first letter of the class name
+         */
+        const text = "example of class (2nd type of component)";
+        class TestClass extends React.Component {
+            render = () => {
+            return <h1>{text}</h1>
+            }
+        }
+
+        ReactDOM.render(
+            <TestClass />,
+            document.getElementById('myApp')
+        );
+    </script>
+</head>
+
+<body>
+    <!-- step 3: tạo Reactjs view -->
+    <div id="myApp"></div>
+</body>
+
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->

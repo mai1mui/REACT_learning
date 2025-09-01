@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+        <!--For Development-->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <!--Javascript Compiler (toolchain)-->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>  
+    <title>Document</title>
+    <!-- step 2: phát triển Reactjs code với label type -->
+     <script type="text/babel">
+        /**
+         *ReactDOM.render(m,n)
+         +m: content
+         +n:render content to view
+        */
+        ReactDOM.render(
+        <h1>Welcome</h1>,
+        document.getElementById('myApp')
+        );
+     </script>
+</head>
+<body>
+    <!-- step 3: tạo Reactjs view -->
+     <div id="myApp"></div>
+</body>
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->

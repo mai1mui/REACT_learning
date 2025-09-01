@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+    <script src="./JS/script.js"></script>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <title>Document</title>
+    <!-- step 2: phát triển Reactjs code với label type -->
+    <script type="text/babel">
+        const TestStyle = () => {
+            const external = 'myStyle';
+            const internal = {color:'red',fontStyle:'italic'};
+            return (
+                <div>
+                    <h1>example of style sheet</h1>
+                    <h2 style = {internal}>This is internal style</h2>
+                    <h2 className = {external}>This is external style</h2>
+                </div>
+            );
+        }
+
+        ReactDOM.render(
+            <TestStyle />,
+            document.getElementById('myApp')
+        );
+    </script>
+</head>
+
+<body>
+    <!-- step 3: tạo Reactjs view -->
+    <div id="myApp"></div>
+</body>
+
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->

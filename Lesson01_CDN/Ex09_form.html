@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+    <script src="./JS/script.js"></script>
+    <title>Document</title>
+    <!-- step 2: phát triển Reactjs code với label type -->
+    <script type="text/babel">
+       const TestForm = () => {
+        return (
+            <div>
+                <div align="right">
+                    <form action="">
+                        <input type="text" placeholder ="Enter your search" size={40}/>
+                        <button>Search</button>
+                    </form>
+                </div>
+                <div>
+                    <table border = {1} width = "100%">
+                        <caption><h1>Item list</h1></caption>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td>RKSK-B</td>
+                            <td>Rucksack in Brown</td>
+                            <td>450</td>
+                            <td>
+                                <a href="">Edit</a>
+                                <a href="">Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        );
+       }
+
+        ReactDOM.render(
+            <TestForm />,
+            document.getElementById('myApp')
+        );
+    </script>
+</head>
+
+<body>
+    <!-- step 3: tạo Reactjs view -->
+    <div id="myApp"></div>
+</body>
+
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- step 1: nạp CDN-->
+    <script src="./JS/script.js"></script>
+    <title>Document</title>
+    <!-- step 2: phát triển Reactjs code với label type -->
+    <script type="text/babel">
+       const TestEvent = () => {
+        const handleEvent = () => {
+            confirm('Anh click em à?');
+        }
+        return (
+            <div>
+                <h1>example of event</h1>
+                {/*comment*/}
+                <button onClick = {() => {handleEvent()}}> click me</button>
+                <button onClick = {() => {alert('Click thiệt hả!')}}> click again</button>
+            </div>
+        );
+       }
+        ReactDOM.render(
+            <TestEvent />,
+            document.getElementById('myApp')
+        );
+    </script>
+</head>
+
+<body>
+    <!-- step 3: tạo Reactjs view -->
+    <div id="myApp"></div>
+</body>
+
+</html>
+<!-- babel type => convert ECMAScript tương thích với mã JS cũ -->
