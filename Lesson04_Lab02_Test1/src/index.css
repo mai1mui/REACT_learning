@@ -1,0 +1,32 @@
+body {
+  margin: 2em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+button {width: 150px;}
+
+.listView table {
+  border: 1px solid #000;
+  width: 100%;
+  border-collapse: collapse;}
+.listView th {
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #000;
+  background-color: #5f9ea0;}
+.listView td {
+  border: 1px solid #000;
+  width: 25%;
+  padding: 2px;
+}
+
+.myForm td {padding: 5px;}
+.myForm input {width: 300px;}
