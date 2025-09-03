@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class car { 
+        /*class sử dụng để định nghĩa 1 lớp
+        car_tên lớp*/
+            constructor(name) {
+            /*phương thức constructor dc gọi tự động khi 1 đối tượng mới của lớp car dc tạo
+            name_tham số dc truyền vào khi tạo đối tượng*/
+                this.brand = name;
+                /*this.brand dc gán giá trị của tham số name
+                this_đại diện cho đối tượng hiện tại*/
+            }
+            present() {
+                return 'I have one thousand ' + this.brand;
+            }
+        }
+        const myCar = new car("Vinfast");
+        /*biến myCar dc khai báo với const, nghĩa là k thể gán lại cho 1 đối tuọng khác nhưng thuộc tính của đối tượng có thể thay đổi
+        sd từ khóa new tạo 1 đối tượng mới từ lớp car
+        tham số Vinfast dc truyền vào hàm constructor của lớp car và dc gán cho thuộc tính brand của đối tượng*/
+        document.write(myCar.brand);
+        /*document.write ghi trực tiếp nội dung lên trang web
+        myCar.brand_truy cập thuộc tính brand của đối tượng myCar, in ra giá trị dc gán khi tạo đối tượng*/
+        document.write("<br>");/*thêm br để xuống dòng*/
+        document.write(myCar.present());
+        //kế thừa lớp_lớp kế thừa sẽ có tất cả các phương thức từ lớp cũ
+        class model extends car {
+            constructor(name, mod) {
+                super(name);
+                /*super_tham chiếu đến lớp cha là car*/
+                this.model = mod;
+            }
+            show() {
+                return this.present() +'. It is a '+ this.model;
+            }
+        }
+        const mycar = new model('VF8');
+        document.write("<br>");
+        document.write(mycar.show());
+    </script>
+</body>
+</html>
